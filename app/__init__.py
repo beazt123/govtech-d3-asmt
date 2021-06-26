@@ -1,5 +1,5 @@
 from flask import Flask
-from lib.utils import serverResponse
+from .lib.utils import serverResponse
 
 def create_app():
     app = Flask(__name__)
