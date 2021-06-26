@@ -11,7 +11,7 @@ def hello_world():
     
 
 
-if __name__ == '__main__':
-    # port = int(os.getenv('PORT', 5000))
-    # app.run(host='0.0.0.0', port=port, load_dotenv=".env")
-    app.run()
+# if __name__ == '__main__':
+#     # port = int(os.getenv('PORT', 5000))
+#     # app.run(host='0.0.0.0', port=port, load_dotenv=".env")
+#     app.run()
