@@ -1,2 +1,4 @@
-from app import app
-# app = app
+from lib import create_app
+
+app = create_app()
+app.run()
