@@ -1,4 +1,5 @@
 import os
+import hashlib
 from flask import Blueprint, request, redirect
 # from flask_sqlalchemy.exc import InvalidRequestError
 from ..lib.utils import serverResponse
@@ -22,7 +23,10 @@ def shorten():
                 400,
                 "No URL submitted"
                 )
-        hashedURL = hash(url)
+        
+        hasher = hashlib.md5()
+        hasher.update(url.encode('utf-8'))
+        hashedURL = hasher.hexdigest()
 
         urlData = URL(
             id=hashedURL, 
