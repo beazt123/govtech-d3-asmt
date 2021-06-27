@@ -17,7 +17,11 @@ def create_app(config_file):
 
     @app.route('/health', methods=["GET"])
     def hello_world():
-        return serverResponse(None, 200, "Yes this server is alive")
+        return serverResponse(
+            None, 
+            200, 
+            "Yes this server is alive"
+            )
 
 
     app.register_blueprint(bp)
