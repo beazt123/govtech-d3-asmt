@@ -1,7 +1,7 @@
 import os
 import hashlib
 from flask import Blueprint, request, redirect
-# from flask_sqlalchemy.exc import InvalidRequestError
+from sqlalchemy.exc import IntegrityError
 from ..lib.utils import serverResponse
 from ..database import db
 from ..models import URL
@@ -32,9 +32,18 @@ def shorten():
             id=hashedURL, 
             originalUrl=url
         )
-        # try:
-        db.session.add(urlData)
-        db.session.commit()
+        try:
+            db.session.add(urlData)
+            db.session.commit()
+        except IntegrityError:
+            pass
+            # url = URL.query.filter_by(id=id)
+        # except InvalidRequestError:
+        #     return serverResponse(
+        #         None,
+        #         400,
+        #         "URL rejected by database"
+        #     )
         data = {
             "url": url,
             "url-short": f"{BACKEND_SERVER_BASE_URL}/{hashedURL}"
@@ -42,15 +51,10 @@ def shorten():
         return serverResponse(
             data, 
             200, 
-            "URL has been added to the database"
+            "URL has been shortened"
         )
 
-        # except InvalidRequestError:
-        #     return serverResponse(
-        #         None,
-        #         400,
-        #         "URL rejected by database"
-        #     )
+        
 
         # except Exception as e:
         #     print(e)
