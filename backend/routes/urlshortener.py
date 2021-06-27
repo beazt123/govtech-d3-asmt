@@ -68,14 +68,14 @@ def shorten():
 def goTo(id):
     if request.method == 'GET':
         # try:
-        url = URL.query.filter_by(id=id)
+        url = URL.query.filter_by(id=id).first()
         print(url)
-        print(url["originalUrl"])
+        print(url.originalUrl)
         # except Exception as e:
         #     return serverResponse(
         #         None,
         #         500,
         #         "Unexplained exception"
         #     )
-        return redirect(url["originalUrl"])
+        return redirect(url.originalUrl)
 
