@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 from .database import db
 from .lib.utils import serverResponse
 from .routes.urlshortener import bp
@@ -11,6 +12,7 @@ def create_app(config_file):
 
     
     db.init_app(app)
+    CORS(app)
 
 
 
