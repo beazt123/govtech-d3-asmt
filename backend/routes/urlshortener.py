@@ -64,11 +64,13 @@ def shorten():
         #         "Unexplained exception"
         #     )
 
-@bp.route('/<int:id>', methods=['GET'])
+@bp.route('/<str: id>', methods=['GET'])
 def goTo(id):
     if request.method == 'GET':
         try:
             url = URL.query.filter_by(id=id)
+            print(url)
+            print(url["originalUrl"])
         except Exception as e:
             return serverResponse(
                 None,
