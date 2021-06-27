@@ -1,0 +1,8 @@
+.env
+
+.coverage
+
+coverage_html/
+
+
+**/db.sqlite3

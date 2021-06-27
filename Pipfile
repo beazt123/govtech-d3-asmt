@@ -11,6 +11,9 @@ werkzeug = "==2.0.1"
 bson = "*"
 pymongo = "*"
 gunicorn = "*"
+psycopg2 = "*"
+flask-sqlalchemy = "*"
+pysqlite3 = "*"
 
 [dev-packages]
 
