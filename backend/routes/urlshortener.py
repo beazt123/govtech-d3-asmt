@@ -64,7 +64,7 @@ def shorten():
         #         "Unexplained exception"
         #     )
 
-@bp.route('/<str:id>', methods=['GET'])
+@bp.route('/<string:id>', methods=['GET'])
 def goTo(id):
     if request.method == 'GET':
         try:
