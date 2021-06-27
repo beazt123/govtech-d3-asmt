@@ -37,7 +37,7 @@ def shorten():
         db.session.commit()
         data = {
             "url": url,
-            "url-short": "{BACKEND_SERVER_BASE_URL}/{hashedURL}"
+            "url-short": f"{BACKEND_SERVER_BASE_URL}/{hashedURL}"
         }
         return serverResponse(
             data, 
